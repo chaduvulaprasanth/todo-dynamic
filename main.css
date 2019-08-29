@@ -1,0 +1,17 @@
+body {
+	background-color: yellow;
+}
+.wrapper {
+	
+	text-align: center;
+
+}
+li {
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.flex-wrapper {
+	display: flex;
+}
