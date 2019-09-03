@@ -13,4 +13,16 @@ li {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 50px;
+}
+#flex{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+p{
+	color: white;
+}
+input[type="checkbox"]:checked + p{
+	text-decoration: line-through;
 }
