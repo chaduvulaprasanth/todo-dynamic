@@ -1,7 +1,8 @@
-document.body.style.backgroundColor = "crimson";
 var data = JSON.parse(localStorage.getItem("data")) || [];
 var active;
 var complete;
+display()
+
 function addtodo(event){
 	if(event.keyCode == 13){
 	var itemData = {checked:false,
@@ -12,6 +13,8 @@ function addtodo(event){
 	display()
 	}
 }
+
+
 function display(){
 	var ul = document.querySelector("ul");
 	ul.innerHTML = "";
@@ -23,6 +26,7 @@ function display(){
 		check.dataset.checkid = i;
 		check.type = "checkbox";
 		var p = document.createElement("p");
+		p.classList.add("para");
 		p.textContent = e.todotext;
 		var del = document.createElement("button");
 		del.dataset.delid = i;
@@ -70,7 +74,7 @@ function activetodo(){
 		return items.checked == false;
 		
 	});
-	document.getElementById("itemsLeft").innerText = active.length;
+	document.getElementById("itemsLeft").innerText = `${active.length} items left`;
 }
 
 
@@ -106,12 +110,11 @@ document.getElementById("allactive").addEventListener("click",activedisplay)
 // completed
 
 function completetodo(){
-	console.log("hi");
 	complete = data.filter(function(items,index){
 		return items.checked == true;
 		
 	});
-	document.getElementById("itemsLeft").innerText = active.length;
+	document.getElementById("itemsLeft").innerText = `${active.length} items left`;
 }
 
 
@@ -141,7 +144,13 @@ function completedisplay(){
 
 document.getElementById("completed").addEventListener("click",completedisplay)
 
+// clear completed
 
+function cleartodo(){
+complete = [];
+completedisplay()
+}
+document.getElementById("clear").addEventListener("click",cleartodo);
 
 
 
